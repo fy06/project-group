@@ -8,7 +8,7 @@ def coh_function(forex):
         prev_day = 0
         diff = 0 
         for line in file.readlines():
-            line = re.findall(pattern=r'[0-9][0-9]+',string=line)
+            line = re.findall(pattern=r'[0][0]+',string=line)
             diff = float(line[1]) - prev_day
             prev_day = float(line[4])
             if diff<0:
