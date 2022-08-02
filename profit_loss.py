@@ -11,3 +11,6 @@ def profit_loss_function(forex):
             line = re.findall(pattern=r'[0-9]+', string=line)
             diff = line[4] - prev_day
             prev_day = line[4]
+            if diff < 0:
+                diff = abs(diff)*forex
+                
