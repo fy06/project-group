@@ -14,5 +14,5 @@ def profit_loss_function(forex):
             if diff < 0:
                 diff = abs(diff)*forex
                 with summary_path.open(mode="a", encoding='UTF-8', newline='') as file:
-                    file.writelines("[PROFIT DEFICIT] "+"DAY: "+str(float(line[0]))+", AMOUNT: SGD"+str(diff))
+                    file.writelines("[PROFIT DEFICIT] "+"DAY: "+str(round(float(line[0]),1))+", AMOUNT: SGD"+str(diff))
         file.close()
