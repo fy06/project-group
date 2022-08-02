@@ -10,4 +10,13 @@ def overhead_function(forex):
         for line in file:
             line_data = line.strip().split('\n')[0].split(",")
             data_list.append(line_data)
-            
+        for data in range(0,len(data_list)):
+            if float(data_list[data][1]) > highest_value:
+                highest_value = float(data_list[data][1])*forex
+                highest_value_index = data
+        write_data = data_list[highest_value_index]
+        write_data1 = write_data[0].upper().replace('""','') + ":"
+        write_data2 = round(highest_value,1)
+        with summary_path.open(mode="a",encoding='UTF-8',newline='') as file:
+            file.writelines("[HIGHEST OVERHEADS] "+write_data1+" SGD"+str(write_data2)+"\n") 
+        file.close()       
