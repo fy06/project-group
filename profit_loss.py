@@ -9,8 +9,8 @@ def profit_loss_function(forex):
         diff = 0
         for line in file.readliness():
             line = re.findall(pattern=r'[0-9][0-9]+', string=line)
-            diff = line[4] - prev_day
-            prev_day = line[4]
+            diff = float(line[4]) - prev_day
+            prev_day = float(line[4])
             if diff < 0:
                 diff = abs(diff)*forex
                 with summary_path.open(mode="a", encoding='UTF-8', newline='') as file:
