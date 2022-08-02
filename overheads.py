@@ -17,4 +17,6 @@ def overhead_function(forex):
         write_data = data_list[highest_value_index]
         write_data1 = write_data[0].upper().replace('""','') + ":"
         write_data2 = round(highest_value,1)
-                
+        with summary_path.open(mode="a",encoding='UTF-8',newline='') as file:
+            file.writelines("[HIGHEST OVERHEADS] "+write_data1+" SGD"+str(write_data2)+"\n") 
+        file.close()       
