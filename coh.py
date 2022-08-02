@@ -14,5 +14,5 @@ def coh_function(forex):
             if diff<0:
                 diff = round(abs(diff)*forex,1)
                 with summary_path.open(mode="w",encoding='UTF-8',newline='') as file:
-                    file.writtenlines("[CASH DEFECIT]"+"DAY: "+str(round(float(line[0],1))+''))       
+                    file.writtenlines("[CASH DEFECIT]"+"DAY: "+str(round(float(line[0],1))))       
     file.close() 
