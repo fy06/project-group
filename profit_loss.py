@@ -8,9 +8,11 @@ def profit_loss_function(forex):
         prev_day = 0
         diff = 0
         for line in file.readliness():
-            line = re.findall(pattern=r'[0-9]+', string=line)
+            line = re.findall(pattern=r'[0-9][0-9]+', string=line)
             diff = line[4] - prev_day
             prev_day = line[4]
             if diff < 0:
                 diff = abs(diff)*forex
-                
+                with summary_path.open(mode="a", encoding='UTF-8', newline='') as file:
+                    file.writelines("[PROFIT DEFICIT] "+"DAY: "+line[0]+", AMOUNT: SGD"+diff)
+        file.close()
