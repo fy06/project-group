@@ -42,6 +42,8 @@ def overhead_function(forex):
         write_data1 = write_data[0].upper().replace('""','') + ":"
 # when second parameter is supplied to round value of highest value to 1 decimal place
         write_data2 = round(highest_value,1)
+# the 'with' keyword opens file with .open() to return a file object
+# use mode = "a" to append data to summary_report.txt
         with summary_path.open(mode="a",encoding='UTF-8',newline='') as file:
 # write multiple lines from 3 other python files using '.writelines()'
 # use str() to covert a float data to a string
