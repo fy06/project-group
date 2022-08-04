@@ -18,5 +18,8 @@ def overhead_function(forex):
         write_data1 = write_data[0].upper().replace('""','') + ":"
         write_data2 = round(highest_value,1)
         with summary_path.open(mode="a",encoding='UTF-8',newline='') as file:
+# write multiple lines from 3 other python files using '.writelines()'
+# use str() to covert a float data to a string
             file.writelines("[HIGHEST OVERHEADS] "+write_data1+" SGD"+str(write_data2)+"\n") 
+# use '.close()' to close a file
         file.close()       
