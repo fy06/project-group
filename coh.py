@@ -11,14 +11,12 @@ summary_path = Path.cwd()/"csv_reports"/"summary_report.txt"
 # include docstrings to a function using triple-quoted string 
 def coh_function(forex):
     """
-<<<<<<< HEAD
+    
     - this function determines whether there is cash deficit  or cash surplus
     - and converts the amount of cash deficit from USD currency to SGD currency
     - using forex which is currency conversion/exchange rate
     - and rounds it off to 1 decimal place 
-=======
-    - this function 
->>>>>>> 9ca1dcb944511700c4fdb305de8c4a0cdfa23812
+
     """
 # catch a FileNotFound error
     try:
