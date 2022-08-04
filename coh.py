@@ -18,7 +18,7 @@ def coh_function(forex):
             diff = float(data_list[line][1]) - prev_day
             if diff<0:
                 diff = round(abs(diff)*forex,1)
-                file.writelines("[CASH DEFECIT]"+"DAY: "+str(float(data_list[line][0]))+",AMOUNT: SGD"+str(diff)+"\n"))
+                file.writelines("[CASH DEFECIT]"+"DAY: "+str(float(data_list[line][0]))+",AMOUNT: SGD"+str(diff)+"\n")
                 deficit_presence = True
             else:
                 if diff > 0 and line == (len(data_list)-1) and deficit_presence == False:
