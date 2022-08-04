@@ -11,16 +11,13 @@ summary_path = Path.cwd()/"csv_reports"/"summary_report.txt"
 # include docstrings to a function using triple-quoted string 
 def coh_function(forex):
     """
-    
     - this function determines whether there is cash deficit  or cash surplus
     - and converts the amount of cash deficit from USD currency to SGD currency
     - using forex which is currency conversion/exchange rate
     - and rounds it off to 1 decimal place 
-
     """
 # catch a FileNotFound error
     try:
-# the 'with' keyword opens file with .open() to return a file object
 # mode = "r" arguments open a file in'read mode'
         file_path.open(mode="r", encoding='UTF-8')
 # except statement will execute when try statement fails
@@ -29,6 +26,8 @@ def coh_function(forex):
         print("No such file in working directory as file may be deleted")
 # return keyword returns empty value
         return
+# the 'with' keyword opens file with .open() to return a file object
+# mode = "r" arguments open a file in'read mode'
     with file_path.open(mode="r",encoding='UTF-8') as file:
 # use 'next()' to skip the header      
         next(file)
