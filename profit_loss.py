@@ -9,8 +9,23 @@ from typing_extensions import dataclass_transform
 file_path = Path.cwd()/"csv_reports"/"Profits and Loss.csv"
 # create another path for summary_report.txt
 summary_path = Path.cwd()/"csv_reports"/"summary_report.txt"
-
 def profit_loss_function(forex):
+    """
+    - this function determines whether there is profit deficit or net profit
+    - and converts the amount of profit deficit from USD currency to SGD currency 
+    - using forex which is currency conversion/exchange rate
+    - and rounds it off to the nearest whole number
+    """
+    # Catch a FileNotFound error
+    try:
+        # mode = "r" arguments open a file in 'read mode'.
+        file_path.open(mode="r",encoding= 'UTF-8')
+    # except statement will execute when try statement fails
+    # the error type is spelled out after except keyword
+    except FileNotFoundError:
+        print("No such file in working directory as file may be deleted or does not exist")
+    # return keyword returns empty value 
+        return
     # using 'with' keyword to open file with .open() to return a file object
     # mode="r" will open the file in read mode
     with file_path.open(mode="r",encoding='UTF-8',newline='') as file:
@@ -37,10 +52,17 @@ def profit_loss_function(forex):
                 # a for loop iterate over 1 to the length of data list, with a default interval of 1
                 # len() will return a value of 6 since there are 6 variables in the data list
                 for line in range(1,len(data_list)):
+                    # Catch an index error
+                    try:
+                    # use float() to convert float with trail zero decimals to integer 
                     # the fifth index position is 4
                     # this will return the value for the respective variables under Net Profit
-                    prev_day = float(data_list[line-1][4])
-                    diff = float(data_list[line][4]) - prev_day
+                        prev_day = float(data_list[line-1][4])
+                        diff = float(data_list[line][4]) - prev_day
+                    # except statement will execute when try statement fails
+                    # the error type is spelled out after except keyword
+                    except IndexError:
+                        print("List index is out of range error at profit & loss function when searching for previous day")
                     # if statement will execute a portion of code when the diff is less than 0
                     if diff < 0:
                         # abs() returns a positive number for diff
@@ -50,6 +72,8 @@ def profit_loss_function(forex):
                         # using str() to convert float data type to a string
                         file.writelines("[PROFIT DEFICIT] "+"DAY: "+str(float(data_list[line][0]))+", AMOUNT: SGD"+str(diff)+"\n")
                         deficit_presence = True
+                    # else keyword is used after if to excute the other scenario
+                    # when the if statement is evaluated as False    
                     else:
                         # if statement will execute a portion of code when the diff is more than 0
                         # == is a boonlean comparator to compare if line and (len(data_list)-1) are equal

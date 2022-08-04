@@ -7,6 +7,22 @@ file_path = Path.cwd()/"csv_reports"/"Overheads.csv"
 # set a path object for summary_report.txt
 summary_path = Path.cwd()/"csv_reports"/"summary_report.txt"
 def overhead_function(forex):
+    """
+    - this function searches for the highest expense category
+    - and converts the amount of the highest expense from USD currency to SGD currency 
+    - using forex which is currency conversion/exchange rate
+    - and rounds it off to 1 decimal place
+    """
+# Catch a FileNotFound error
+    try:
+# mode = "r" arguments open a file in 'read mode'.
+        file_path.open(mode="r",encoding= 'UTF-8')
+# except statement will execute when try statement fails
+# the error type is spelled out after except keyword
+    except FileNotFoundError:
+        print("No such file in working directory as file may be deleted or does not exist")
+# return keyword returns empty value 
+        return
 # the 'with' keyword opens file with .open() to return a file object
 # mode = "r" arguments open a file in 'read mode'.
     with file_path.open(mode="r",encoding= 'UTF-8') as file:

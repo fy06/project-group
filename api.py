@@ -10,9 +10,12 @@ file_path = Path.cwd()
 summary_path = Path.cwd()/"csv_reports"/"summary_report.txt"
 #create a new file with '.touch()'
 summary_path.touch()
+# include docstrings to a function using triple-quoted string 
 def api_function():
-
-
+    """
+    - this function finds the currency conversion/exchange rate 
+    - from USD currency to SGD currency
+    """
 #assign the key extracted from alphavantage to an object called api_key
     api_key = "LVPKBSQPQ5ZN4XYR"
 #assign API url to an object called url 
@@ -30,6 +33,11 @@ def api_function():
 #use float() to convert string with decimals numbers to a float
     data = float(data.replace('Exchange Rate": "','').strip('",'))
 #the 'with' keyword opens file with .open() to return a file object
+# use mode = "w" to write the data with no data, meaning that it will clear the contents of the summary report before appending new data
+# include one more parameter, newline="".
+# not including the newline parameter will add an extra line ending in the txt file.
+    with summary_path.open(mode="w",encoding='UTF-8',newline='') as file:
+        file.write("")
 #use mode = "a" to append data to summary_report.txt
     with summary_path.open(mode="a",encoding='UTF-8',newline='') as file:
 #write multiple lines from 3 other python files using '.writelines()'
