@@ -8,12 +8,17 @@ import re
 file_path = Path.cwd()/"csv_reports"/"Cash on Hand.csv"
 # create a path object for summary_report.txt
 summary_path = Path.cwd()/"csv_reports"/"summary_report.txt"
+# include docstrings to a function using triple-quoted string 
 def coh_function(forex):
     """
+<<<<<<< HEAD
     - this function determines whether there is cash deficit  or cash surplus
     - and converts the amount of cash deficit from USD currency to SGD currency
     - using forex which is currency conversion/exchange rate
     - and rounds it off to 1 decimal place 
+=======
+    - this function 
+>>>>>>> 9ca1dcb944511700c4fdb305de8c4a0cdfa23812
     """
 # catch a FileNotFound error
     try:
@@ -66,11 +71,11 @@ def coh_function(forex):
                 if diff < 0: 
 # abs() retuns a positive number for diff
 # when second parameter is supplied to round data to 1 decimal place
-                   diff = round(abs(diff)*forex,1)
+                    diff = round(abs(diff)*forex,1)
 # write multiple lines from 3 other python files using 'writelines()' in first scenario 
 # use str() to convert a float data to a string
-                   file.writelines("[CASH DEFECIT]"+"DAY: "+str(float([line][0]))+",AMOUNT: SGD"+str(diff)+"\n")
-                   deficit_presence = True 
+                    file.writelines("[CASH DEFECIT]"+"DAY: "+str(float([line][0]))+",AMOUNT: SGD"+str(diff)+"\n")
+                    deficit_presence = True 
 # else keyword is used after if to excute the other scenario
 # when the if statement is evaluated as False
                 else: 
